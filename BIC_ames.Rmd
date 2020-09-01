@@ -32,3 +32,7 @@ summary(forwardBIC)
 vif(forwardBIC)
 ```
 
+```{r}
+plot(forwardBIC)
+```
+

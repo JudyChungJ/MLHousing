@@ -12,6 +12,23 @@ head(df)
 ```
 
 ```{r}
+model.sat1 = lm(SalePrice ~ ., data = df)
+```
 
+```{r}
+model.empty1 = lm(SalePrice ~ 1, data = df) #The model with an intercept ONLY.
+scope1 = list(lower = formula(model.empty1), upper = formula(model.sat1))
+```
+
+
+```{r}
+forwardBIC = step(model.empty1, scope1, direction = "forward", k = log(2064))
+```
+```{r}
+summary(forwardBIC)
+```
+
+```{r}
+vif(forwardBIC)
 ```
 
